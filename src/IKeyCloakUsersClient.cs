@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using PlusUltra.KeyCloak.ApiClient.Entities;
+using PlusUltra.KeyCloak.ApiClient.ViewModels;
 using Refit;
 
 namespace PlusUltra.KeyCloak.ApiClient
@@ -7,7 +7,6 @@ namespace PlusUltra.KeyCloak.ApiClient
     public interface IKeyCloakUsersClient
     {
         [Get("/users/{id}")]
-        [Headers("Authorization: Bearer")]
-        Task<User> GetUser(string id);
+        Task<User> GetUserAsync(string id);
     }
 }
