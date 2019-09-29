@@ -20,7 +20,8 @@ namespace PlusUltra.KeyCloak.ApiClient.Handlers
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var form = new LoginForm{
+            var form = new LoginForm
+            {
                 client_id = settings.ClientId,
                 username = settings.UserName,
                 password = settings.Password,
