@@ -1,10 +1,11 @@
 using System.Threading.Tasks;
 using PlusUltra.KeyCloak.ApiClient;
 using PlusUltra.KeyCloak.ApiClient.Tests;
+using PlusUltra.Testing;
 using Shouldly;
 using Xunit;
 
-namespace tests
+namespace PlusUltra.KeyCloak.ApiClient.Tests
 {
     public class AuthTest : TestHost<Startup>
     {
