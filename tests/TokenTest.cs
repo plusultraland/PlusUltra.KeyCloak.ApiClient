@@ -1,8 +1,8 @@
-using System;
 using Xunit;
 using System.Threading.Tasks;
 using Shouldly;
 using PlusUltra.KeyCloak.ApiClient.ViewModels;
+using PlusUltra.Testing;
 
 namespace PlusUltra.KeyCloak.ApiClient.Tests
 {
