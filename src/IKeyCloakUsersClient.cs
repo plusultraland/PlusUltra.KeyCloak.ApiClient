@@ -8,5 +8,8 @@ namespace PlusUltra.KeyCloak.ApiClient
     {
         [Get("/users/{id}")]
         Task<User> GetUserAsync(string id);
+        
+        [Post("/users")]
+        Task PostUserAsync([Body] User user);
     }
 }
