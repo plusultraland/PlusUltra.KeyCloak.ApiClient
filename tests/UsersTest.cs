@@ -1,15 +1,16 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using PlusUltra.KeyCloak.ApiClient.ViewModels;
+using PlusUltra.KeyCloak.ApiClient.Requests;
 using PlusUltra.Testing;
 using Shouldly;
 using Xunit;
 
 namespace PlusUltra.KeyCloak.ApiClient.Tests
 {
-    public class AuthTest : TestHost<Startup>
+    public class UsersTest : TestHost<Startup>
     {
-        public AuthTest()
+        public UsersTest()
         {
             this.usersClient = GetService<IKeyCloakUsersClient>();
         }
@@ -49,13 +50,14 @@ namespace PlusUltra.KeyCloak.ApiClient.Tests
             //Arrange
             var identifier = Guid.NewGuid();
             
-            var user = new User
+            var user = new UserRequest
             {
-                UserName = $"cadu-{identifier:N}",
+                Username = $"cadu-{identifier:N}",
                 FirstName = "Carlos Eduardo",
                 LastName = "Moreia Santos",
                 Email = $"{identifier}@gmail.com",
-                UserEnabled = true
+                Enabled = true,
+                RequiredActions = new List<string> { "terms_and_conditions"}
             };
 
             //Act

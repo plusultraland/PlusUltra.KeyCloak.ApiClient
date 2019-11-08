@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
-using PlusUltra.KeyCloak.ApiClient.ViewModels;
+using PlusUltra.KeyCloak.ApiClient.Requests;
+using PlusUltra.KeyCloak.ApiClient.Responses;
 using Refit;
 
 namespace PlusUltra.KeyCloak.ApiClient
@@ -7,6 +8,6 @@ namespace PlusUltra.KeyCloak.ApiClient
     public interface IKeyCloakAuthClient
     {
         [Post("/protocol/openid-connect/token")]
-        Task<Token> LoginAsync([Body(BodySerializationMethod.UrlEncoded)]LoginForm request);
+        Task<TokenResponse> LoginAsync([Body(BodySerializationMethod.UrlEncoded)]AuthRequest request);
     }
 }

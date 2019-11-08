@@ -3,7 +3,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
-using PlusUltra.KeyCloak.ApiClient.ViewModels;
+using PlusUltra.KeyCloak.ApiClient.Requests;
 
 namespace PlusUltra.KeyCloak.ApiClient.Handlers
 {
@@ -20,7 +20,7 @@ namespace PlusUltra.KeyCloak.ApiClient.Handlers
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var form = new LoginForm
+            var form = new AuthRequest
             {
                 client_id = settings.ClientId,
                 client_secret= settings.ClientSecret,

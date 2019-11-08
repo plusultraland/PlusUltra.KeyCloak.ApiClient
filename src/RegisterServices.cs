@@ -17,7 +17,7 @@ namespace PlusUltra.KeyCloak.ApiClient
             
             services.AddTransient<AuthenticationHeaderHandler>();
 
-            services.AddRefit<IKeyCloakUsersClient>(c => c.BaseAddress = configs.AdminUri)
+            services.AddRefit<IKeyCloakUsersClient>(c => c.BaseAddress = configs.AdminUri, true)
                         .AddHttpMessageHandler<AuthenticationHeaderHandler>();
 
             services.AddRefit<IKeyCloakAuthClient>(c => c.BaseAddress = configs.TokenUri);

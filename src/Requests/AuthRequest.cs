@@ -1,6 +1,6 @@
-namespace PlusUltra.KeyCloak.ApiClient.ViewModels
+namespace PlusUltra.KeyCloak.ApiClient.Requests
 {
-    public class LoginForm
+    public class AuthRequest
     {
         public string grant_type { get; set; } = "client_credentials";
         public string client_id { get; set; }
