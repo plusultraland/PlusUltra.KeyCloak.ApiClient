@@ -17,5 +17,12 @@ namespace PlusUltra.KeyCloak.ApiClient.Requests
         public bool Enabled { get; set; }
 
         public List<string> RequiredActions { get; set; }
+
+        public List<UserCredentials> Credentials { get; set; }
+    }
+
+    public class UserCredentials {
+        public string Type { get; set; }    
+        public string Value { get; set; }
     }
 }

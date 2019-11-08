@@ -43,13 +43,13 @@ namespace PlusUltra.KeyCloak.ApiClient.Tests
             //Assert
             data.ShouldNotBeEmpty();
         }
-        
+
         [Fact]
         public async Task Create_User_Should_Be_Succesfuly()
         {
             //Arrange
             var identifier = Guid.NewGuid();
-            
+
             var user = new UserRequest
             {
                 Username = $"cadu-{identifier:N}",
@@ -57,11 +57,17 @@ namespace PlusUltra.KeyCloak.ApiClient.Tests
                 LastName = "Moreia Santos",
                 Email = $"{identifier}@gmail.com",
                 Enabled = true,
-                RequiredActions = new List<string> { "terms_and_conditions"}
+                RequiredActions = new List<string> { "terms_and_conditions" },
+                Credentials = new List<UserCredentials>{
+                    new UserCredentials{
+                        Type ="password",
+                        Value= $"{identifier:N}"
+                    }
+                }
             };
 
             //Act
-            var task =  usersClient.PostAsync(user);
+            var task = usersClient.PostAsync(user);
             await task;
 
             //Assert
