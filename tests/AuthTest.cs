@@ -20,21 +20,21 @@ namespace PlusUltra.KeyCloak.ApiClient.Tests
         public async Task Find_User_Should_Be_Succesfuly()
         {
             //Arrange
-            var userId = "b70936be-ceb7-40e3-b082-1ebc89910ac1";
+            var userId = "2108b4c3-e7f3-4659-bcba-3da427cb841f";
 
             //Act
             var data = await usersClient.GetUserAsync(userId);
 
             //Assert
             data.ShouldNotBeNull();
-            data.UserName.ShouldBe("alefcarlos");
+            data.Email.ShouldBe("alef.carlos@gmail.com");
         }
         
         [Fact]
         public async Task Create_User_Should_Be_Succesfuly()
         {
             //Arrange
-            var identifier = Guid.NewGuid().ToString("N");
+            var identifier = Guid.NewGuid();
             
             var user = new User
             {

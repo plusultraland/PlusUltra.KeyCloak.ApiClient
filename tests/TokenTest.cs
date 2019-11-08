@@ -23,10 +23,8 @@ namespace PlusUltra.KeyCloak.ApiClient.Tests
             //Arrange
             var form = new LoginForm
             {
-                grant_type = "password",
-                username = "admin",
-                password ="admin",
-                client_id = "admin-cli"
+                client_id = "admin-cli",
+                client_secret= "d47aee3b-aad6-4073-be38-fbcc8c525f91"
             };
 
             //Act

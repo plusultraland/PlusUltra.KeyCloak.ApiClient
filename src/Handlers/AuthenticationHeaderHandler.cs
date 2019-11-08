@@ -23,9 +23,7 @@ namespace PlusUltra.KeyCloak.ApiClient.Handlers
             var form = new LoginForm
             {
                 client_id = settings.ClientId,
-                username = settings.UserName,
-                password = settings.Password,
-                grant_type = "password"
+                client_secret= settings.ClientSecret,
             };
 
             //Obter o token
