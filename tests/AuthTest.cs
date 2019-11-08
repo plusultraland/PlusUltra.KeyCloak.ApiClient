@@ -23,11 +23,24 @@ namespace PlusUltra.KeyCloak.ApiClient.Tests
             var userId = "2108b4c3-e7f3-4659-bcba-3da427cb841f";
 
             //Act
-            var data = await usersClient.GetUserAsync(userId);
+            var data = await usersClient.GetAsync(userId);
 
             //Assert
             data.ShouldNotBeNull();
             data.Email.ShouldBe("alef.carlos@gmail.com");
+        }
+
+        [Fact]
+        public async Task Search_User_Should_Be_Succesfuly()
+        {
+            //Arrange
+            var search = "alef.carlos@gmail.com";
+
+            //Act
+            var data = await usersClient.SearchAsync(search);
+
+            //Assert
+            data.ShouldNotBeEmpty();
         }
         
         [Fact]
@@ -46,7 +59,7 @@ namespace PlusUltra.KeyCloak.ApiClient.Tests
             };
 
             //Act
-            var task =  usersClient.PostUserAsync(user);
+            var task =  usersClient.PostAsync(user);
             await task;
 
             //Assert
