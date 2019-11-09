@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PlusUltra.ApiClient" Version="0.2.1" />
+    <PackageReference Include="PlusUltra.ApiClient" Version="0.2.4" />
     <PackageReference Include="GitVersionTask" Version="5.0.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
