@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="PlusUltra.ApiClient" Version="0.2.4" />
+    <PackageReference Include="PlusUltra.DistributedCache" Version="1.0.0" />
     <PackageReference Include="GitVersionTask" Version="5.0.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
