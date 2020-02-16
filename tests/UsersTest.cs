@@ -73,5 +73,38 @@ namespace PlusUltra.KeyCloak.ApiClient.Tests
             //Assert
             task.IsCompletedSuccessfully.ShouldBeTrue();
         }
+        [Fact]
+        public async Task Update_User_Should_Be_Succesfuly()
+        {
+            //Arrange
+            var identifier = Guid.NewGuid();
+
+            var user = new UserRequest
+            {
+                Username = $"cadu-{identifier:N}",
+                FirstName = "Carlos Eduardo Gayzao",
+                LastName = "Moreia Santos"
+            };
+            var userId = "88977281-c5e4-4e79-83a8-a01180feb51f";
+
+            //Act
+            var task = usersClient.PutAsync(userId, user);
+            await task;
+
+            //Assert
+            task.IsCompletedSuccessfully.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task Delete_User_Should_Be_Succesfuly()
+        {
+            var userId = "88977281-c5e4-4e79-83a8-a01180feb51f";
+
+            var task = usersClient.DeleteAsync(userId);
+            await task;
+
+            //Assert
+            task.IsCompletedSuccessfully.ShouldBeTrue();
+        }
     }
 }

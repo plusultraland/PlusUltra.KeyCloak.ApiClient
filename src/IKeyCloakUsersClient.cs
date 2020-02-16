@@ -16,5 +16,12 @@ namespace PlusUltra.KeyCloak.ApiClient
 
         [Post("/users")]
         Task PostAsync([Body] UserRequest request);
+
+        [Put("/users/{id}")]
+        Task PutAsync(string id, [Body] UserRequest request);
+
+        [Delete("/users/{id}")]
+        Task DeleteAsync(string id);
+
     }
 }
