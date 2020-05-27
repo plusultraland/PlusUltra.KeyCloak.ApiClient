@@ -25,6 +25,6 @@ namespace PlusUltra.KeyCloak.ApiClient
 
 
         [Put("/users/{id}/send-verify-email")]
-        Task SendVerifyEmail();
+        Task SendVerifyEmail(string id);
     }
 }
