@@ -23,5 +23,8 @@ namespace PlusUltra.KeyCloak.ApiClient
         [Delete("/users/{id}")]
         Task DeleteAsync(string id);
 
+
+        [Put("/users/{id}/send-verify-email")]
+        Task SendVerifyEmail();
     }
 }
