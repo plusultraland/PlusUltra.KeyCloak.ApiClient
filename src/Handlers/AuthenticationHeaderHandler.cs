@@ -24,7 +24,7 @@ namespace PlusUltra.KeyCloak.ApiClient.Handlers
         private readonly KeyCloakSettings settings;
         private readonly IDistributedCache cache;
 
-        const string CACHE_KEY = "keycloak_key";
+        public const string CACHE_KEY = "keycloak_key";
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
