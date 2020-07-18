@@ -10,19 +10,17 @@ namespace PlusUltra.KeyCloak.ApiClient
 {
     public static class RegisterServices
     {
-        public static IServiceCollection AddKeyCloakApiClients(this IServiceCollection services, IConfiguration configuration)
+        public static IHttpClientBuilder AddKeyCloakApiClients(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<KeyCloakSettings>(configuration.GetSection(nameof(KeyCloakSettings)));
             var configs = services.BuildServiceProvider().GetRequiredService<IOptions<KeyCloakSettings>>().Value;
             
             services.AddTransient<AuthenticationHeaderHandler>();
 
-            services.AddApiClient<IKeyCloakUsersClient>(c => c.BaseAddress = configs.AdminUri)
-                        .AddHttpMessageHandler<AuthenticationHeaderHandler>();
-
             services.AddApiClient<IKeyCloakAuthClient>(c => c.BaseAddress = configs.TokenUri);
 
-            return services;
+            return services.AddApiClient<IKeyCloakUsersClient>(c => c.BaseAddress = configs.AdminUri)
+                        .AddHttpMessageHandler<AuthenticationHeaderHandler>();
         }
     }
 }
